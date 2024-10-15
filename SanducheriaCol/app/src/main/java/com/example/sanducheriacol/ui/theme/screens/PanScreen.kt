@@ -1,15 +1,11 @@
-package com.example.sanducheriacol.ui.theme.screens
+package com.example.sanducheriacol.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowForward
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,20 +14,22 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.sanducheriacol.R
+import com.example.sanducheriacol.viewmodel.SandwichViewModel
 import com.google.accompanist.pager.*
-import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun PanScreen(navController: NavController) {
+fun PanScreen(navController: NavController, viewModel: SandwichViewModel) {
     val pagerState = rememberPagerState()
     val scope = rememberCoroutineScope()
 
     val breadOptions = listOf(
-        Pair("PAN BLANCO", R.drawable.ic_launcher_foreground),
-        Pair("PAN INTEGRAL", R.drawable.ic_launcher_foreground),
-        Pair("PAN DE CENTENO", R.drawable.ic_launcher_foreground)
+        "Pan Blanco" to R.drawable.whitebread,
+        "Pan Integral" to R.drawable.whole_bread,
+        "Pan de Centeno" to R.drawable.rye_bread
     )
+
+    var selectedBread by remember { mutableStateOf("") }
 
     Scaffold(
         topBar = {
@@ -39,7 +37,7 @@ fun PanScreen(navController: NavController) {
                 title = {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                            painter = painterResource(id = R.drawable.logo_no_background),
                             contentDescription = "Sandwich Icon",
                             modifier = Modifier.size(24.dp)
                         )
@@ -53,9 +51,6 @@ fun PanScreen(navController: NavController) {
                     }
                 },
                 actions = {
-                    IconButton(onClick = { /* TODO: Handle forward navigation */ }) {
-                        Icon(Icons.Default.ArrowForward, contentDescription = "Forward")
-                    }
                     IconButton(onClick = { /* TODO: Handle close action */ }) {
                         Icon(Icons.Default.Close, contentDescription = "Close")
                     }
@@ -116,10 +111,9 @@ fun PanScreen(navController: NavController) {
 
             Button(
                 onClick = {
-                    scope.launch {
-                        // You might want to save the selected bread option here
-                        navController.navigate("proteina")
-                    }
+                    selectedBread = breadOptions[pagerState.currentPage].first
+                    viewModel.startNewSandwich(selectedBread)
+                    navController.navigate("proteina")
                 },
                 modifier = Modifier
                     .fillMaxWidth()

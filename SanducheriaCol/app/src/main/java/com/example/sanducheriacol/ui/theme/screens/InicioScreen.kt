@@ -28,7 +28,7 @@ fun InicioScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Icon(
-            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+            painter = painterResource(id = R.drawable.logo_no_background),
             contentDescription = "Sandwich Icon",
             modifier = Modifier.size(100.dp)
         )

@@ -28,10 +28,10 @@ fun ProteinaScreen(navController: NavController) {
     val scope = rememberCoroutineScope()
 
     val proteinOptions = listOf(
-        Pair("ROAST-BEEF", R.drawable.ic_launcher_foreground),
-        Pair("POLLO", R.drawable.ic_launcher_foreground),
-        Pair("JAMÓN", R.drawable.ic_launcher_foreground),
-        Pair("ATÚN", R.drawable.ic_launcher_foreground)
+        Pair("ROAST-BEEF", R.drawable.roastbeef),
+        Pair("POLLO", R.drawable.pollo),
+        Pair("JAMÓN", R.drawable.jamon),
+        Pair("ATÚN", R.drawable.atun)
     )
 
     Scaffold(
@@ -40,7 +40,7 @@ fun ProteinaScreen(navController: NavController) {
                 title = {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                            painter = painterResource(id = R.drawable.logo_no_background),
                             contentDescription = "Sandwich Icon",
                             modifier = Modifier.size(24.dp)
                         )
@@ -54,9 +54,7 @@ fun ProteinaScreen(navController: NavController) {
                     }
                 },
                 actions = {
-                    IconButton(onClick = { /* TODO: Handle forward navigation */ }) {
-                        Icon(Icons.Default.ArrowForward, contentDescription = "Forward")
-                    }
+
                     IconButton(onClick = { /* TODO: Handle close action */ }) {
                         Icon(Icons.Default.Close, contentDescription = "Close")
                     }

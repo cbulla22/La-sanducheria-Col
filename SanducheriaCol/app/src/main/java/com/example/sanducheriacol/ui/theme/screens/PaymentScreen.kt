@@ -27,7 +27,7 @@ fun PaymentScreen(navController: NavController) {
                 title = {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                            painter = painterResource(id = R.drawable.logo_no_background),
                             contentDescription = "Sandwich Icon",
                             modifier = Modifier.size(24.dp)
                         )
@@ -78,12 +78,12 @@ fun PaymentScreen(navController: NavController) {
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                    painter = painterResource(id = R.drawable.sanduche1),
                     contentDescription = "Sandwich 1",
                     modifier = Modifier.size(60.dp)
                 )
                 Image(
-                    painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                    painter = painterResource(id = R.drawable.sanduche2),
                     contentDescription = "Sandwich 2",
                     modifier = Modifier.size(60.dp)
                 )

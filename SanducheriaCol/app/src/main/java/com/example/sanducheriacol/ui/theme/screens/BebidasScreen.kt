@@ -25,14 +25,14 @@ fun BebidasScreen(navController: NavController) {
     val scope = rememberCoroutineScope()
 
     val bebidaOptions = listOf(
-        IngredientItem("Agua", R.drawable.ic_launcher_foreground),
-        IngredientItem("Cerveza", R.drawable.ic_launcher_foreground),
-        IngredientItem("Coca-Cola", R.drawable.ic_launcher_foreground),
-        IngredientItem("Sprite", R.drawable.ic_launcher_foreground),
-        IngredientItem("Jugo de Naranja", R.drawable.ic_launcher_foreground),
-        IngredientItem("Limonada", R.drawable.ic_launcher_foreground),
-        IngredientItem("Té Helado", R.drawable.ic_launcher_foreground),
-        IngredientItem("Café", R.drawable.ic_launcher_foreground)
+        IngredientItem("Agua", R.drawable.bebida1),
+        IngredientItem("Cerveza", R.drawable.cerveza),
+        IngredientItem("Coca-Cola", R.drawable.bebida3),
+        IngredientItem("Sprite", R.drawable.bebida4),
+        IngredientItem("Jugo de Naranja", R.drawable.jugo_naranja),
+        IngredientItem("Limonada", R.drawable.limonada),
+        IngredientItem("Té Helado", R.drawable.te_helado),
+        IngredientItem("Café", R.drawable.cafe)
     )
 
     var selectedCount by remember { mutableStateOf(0) }
@@ -43,7 +43,7 @@ fun BebidasScreen(navController: NavController) {
                 title = {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                            painter = painterResource(id = R.drawable.logo_no_background),
                             contentDescription = "Sandwich Icon",
                             modifier = Modifier.size(24.dp)
                         )
@@ -57,9 +57,7 @@ fun BebidasScreen(navController: NavController) {
                     }
                 },
                 actions = {
-                    IconButton(onClick = { /* TODO: Handle forward navigation */ }) {
-                        Icon(Icons.Default.ArrowForward, contentDescription = "Forward")
-                    }
+
                     IconButton(onClick = { /* TODO: Handle close action */ }) {
                         Icon(Icons.Default.Close, contentDescription = "Close")
                     }

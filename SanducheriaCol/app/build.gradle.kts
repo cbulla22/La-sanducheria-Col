@@ -1,6 +1,8 @@
 plugins {
+
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -50,6 +52,12 @@ android {
 }
 
 dependencies {
+    implementation(libs.kotlinx.coroutines.android.v164)
+    implementation(libs.androidx.room.runtime.v251)
+    kapt(libs.androidx.room.compiler.v251)
+    implementation(libs.androidx.room.ktx.v251)
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    implementation (libs.kotlinx.coroutines.android)
     implementation (libs.accompanist.pager)
     implementation (libs.accompanist.pager.indicators)
     implementation(libs.androidx.core.ktx)

@@ -24,7 +24,7 @@ fun CartScreen(navController: NavController) {
                 title = {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                            painter = painterResource(id = R.drawable.logo_no_background),
                             contentDescription = "Sandwich Icon",
                             modifier = Modifier.size(24.dp)
                         )
@@ -65,9 +65,9 @@ fun CartScreen(navController: NavController) {
                 color = Color.Gray
             )
             Spacer(modifier = Modifier.height(16.dp))
-            CartItem("Carrito de compras #1", R.drawable.ic_launcher_foreground)
+            CartItem("sanduche #1", R.drawable.sanduche1)
             Divider()
-            CartItem("Carrito de compras #2", R.drawable.ic_launcher_foreground)
+            CartItem("sanduche #2", R.drawable.sanduche2)
             Divider()
             Spacer(modifier = Modifier.weight(1f))
             Row(
